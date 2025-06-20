@@ -108,7 +108,15 @@
             throw new Error('Failed to fetch dog data from your server.');
           }
           const dogs = await dogsRes.json();
-          
+          const dogPromises = dogs.map(async (dog) => {
+            try {
+              const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+          const imgData = await imgRes.json();
+        return { ...dog, imageUrl: imgData.message };
+      } catch {
+        return { ...dog, imageUrl: null };
+      }
+    });
 
         }catch(err){
           console.error(err);
