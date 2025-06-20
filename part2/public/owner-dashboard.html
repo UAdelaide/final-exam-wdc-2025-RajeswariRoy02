@@ -92,7 +92,9 @@
 
         async function loadOwnerDogs() {
           try {
-            
+            const userRes = await fetch('/api/users/me');
+            if (!userRes.ok) {
+
 
         async function loadWalks() {
           try {
