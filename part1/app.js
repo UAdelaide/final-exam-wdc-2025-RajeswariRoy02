@@ -79,8 +79,8 @@ await db.execute(`
       FOREIGN KEY (owner_id) REFERENCES Users(user_id)
     )
   `);
-  const [[userCount]] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-  if (userCount.count === 0) {
+const [[userCount]] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+if (userCount.count === 0) {
     await db.execute(`
       INSERT INTO Users (username, email, password_hash, role) VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
