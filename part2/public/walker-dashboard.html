@@ -105,8 +105,10 @@
               error.value ='';
               await loadAvailableWalks();
             }else{
-              
+              throw new Error(result.error || 'Failed to apply to walk. Please check server logs.');
+
             }
+            
         async function logout() {
           try {
             const res = await fetch('/api/users/logout',{
