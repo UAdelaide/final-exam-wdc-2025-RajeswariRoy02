@@ -102,7 +102,8 @@
 
             if (res.ok){
               message.value=result.message|| 'Successfully applied to walk!';
-              error.value =''
+              error.value ='';
+              await loadAvailableWalks();
             }
 
             if (!res.ok){
