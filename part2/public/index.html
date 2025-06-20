@@ -49,20 +49,7 @@
             pass: this.password
           })
         });
-        if (res.ok) {
-          const data = await res.json();
-          if (data.role === 'owner') {
-            window.location.href = '/owner-dashboard.html';
-          } else if (data.role === 'walker') {
-            window.location.href = '/walker-dashboard.html';
-          } else {
-            alert('Unknown role');
-          }
-        } else {
-          alert('Login failed. Please check your credentials.');
-        }
-      }
-    }
+
     }).mount('#app');
   </script>
 
