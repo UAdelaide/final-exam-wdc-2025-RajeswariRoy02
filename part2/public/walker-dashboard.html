@@ -110,7 +110,7 @@
             }
           } catch (err){
             error.value = err.message;
-            message.value = ''; 
+            message.value = '';
             console.error('Error applying to walk:', err);
           }
         }
@@ -133,7 +133,7 @@
           }
         }
 
-        onMounted(() => {
+        onMounted(async() => {
           loadWalkRequests();
         });
 
