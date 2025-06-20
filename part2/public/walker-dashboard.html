@@ -19,7 +19,8 @@
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
 
     <!-- Walk requests list -->
-    <div v-if="walks.length > 0" class="row">
+    <h2 class="mb-3">Available Walk Requests</h2>
+    <div class="row" v-if="availableWalks.length > 0">
       <div class="col-md-6 mb-4" v-for="walk in walks" :key="walk.request_id">
         <div class="card">
           <div class="card-body">
