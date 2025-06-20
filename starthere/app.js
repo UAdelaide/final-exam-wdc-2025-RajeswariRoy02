@@ -122,11 +122,12 @@ app.get('/api/dogs', async (req, res) => {
       FROM Dogs d
       JOIN Users u ON d.owner_id=u.user_id
       ');
-    res.json(books);
+    res.json(dogs);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
+    res.status(500).json({ error: 'Failed to fetch dogs' });
   }
 });
+//
 
 app.use(express.static(path.join(__dirname, 'public')));
 
