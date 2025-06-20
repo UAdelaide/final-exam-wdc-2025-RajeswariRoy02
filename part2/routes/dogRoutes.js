@@ -16,5 +16,7 @@ router.get('/mine', isAuthenticated, async (req, res) => {
             return res.status(400).json({ error: 'Owner ID not found in session.' });
         }
         const [rows]=await db.query(
-            'SELECT dog_id, name, size FROM Dogs WHERE owner_id = ?'
-        )
+            'SELECT dog_id, name, size FROM Dogs WHERE owner_id = ?',
+            [ownerID]
+        );
+        res.json
