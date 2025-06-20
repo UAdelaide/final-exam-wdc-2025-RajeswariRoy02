@@ -136,5 +136,22 @@ app.get('/api/walkrequests/open', async (req, res) => {
       res.status(500).json({ error: 'Failed to fetch open walk requests' });
     }
   });
-
+app.get('/api/walkers/summary', async (req, res) => {
+    try {
+      const [summary] = await db.execute(`
+        SELECT
+          u.username AS walker_username,
+          COUNT(r.rating_id) AS total_ratings,
+          ROUND(AVG(r.rating), 1) AS average_rating,
+          COALESCE((
+            SELECT COUNT(*)
+            FROM WalkRequests wr
+            JOIN WalkApplications wa ON wr.request_id = wa.request_id
+            WHERE wr.status = 'completed' AND wa.status = 'accepted' AND wa.walker_id = u.user_id
+          ), 0) AS completed_walks
+        FROM Users u
+        LEFT JOIN WalkRatings r ON r.walker_id = u.user_id
+        WHERE u.role = 'walker'
+        GROUP BY u.username
+    `);
 module.exports = app;
