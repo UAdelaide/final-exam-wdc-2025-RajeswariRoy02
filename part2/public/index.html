@@ -107,7 +107,8 @@
           if (!dogsRes.ok) {
             throw new Error('Failed to fetch dog data from your server.');
           }
-          this.dogGallery = await dogRes.json();
+          const dogs = await dogsRes.json();
+
         }catch(err){
           console.error(err);
           this.dogGallery=[];
