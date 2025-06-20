@@ -108,7 +108,9 @@
               throw new Error(result.error || 'Failed to apply to walk. Please check server logs.');
 
             }
+          } catch (err){
             
+          }
         async function logout() {
           try {
             const res = await fetch('/api/users/logout',{
