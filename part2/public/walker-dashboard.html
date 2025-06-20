@@ -77,12 +77,20 @@
         async function logout() {
           try{
             const res = await fetch('/api/Users/logout',{
-              
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' }
+            });
+            if (res.ok) {
+              window.location.href = '/index.html'; // Redirect to login page
+            } else {
+              const errorData = await res.json();
+              error.value = errorData.message || 'Logout failed. Please try again.';
+              console.error('Logout failed:', errorData);
             }
-
-            )
+          } catch (err) {
+            error.value = 'An error occurred during logout.';
+            console.error('Network error during logout:', err);
           }
-
         }
 
         onMounted(() => {
@@ -94,6 +102,7 @@
           message,
           error,
           applyToWalk
+          
         };
       }
     }).mount('#app');
