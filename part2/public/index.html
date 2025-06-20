@@ -103,6 +103,10 @@
             const dogs = await dogsRes.json();
 
             const dogPromises = dogs.map(async (dog) => {
+              if (!imgRes.ok) {
+                  console.warn(`Failed to fetch image for dog ${dog.name}. Status: ${imgRes.status}`);
+                  return { ...dog, imageUrl: null };
+              }
               
 
 
