@@ -121,7 +121,12 @@
             const res = await fetch('/api/walks');
             if (res.ok){
             walks.value = await res.json();
-          
+          } else if (res.status === 401) {
+                window.location.href = '/index.html';
+          } else {
+                const errorData = await res.json();
+                throw new Error(errorData.error || `Failed to load walk requests: ${res.status}`);
+            }
           } catch (err) {
             error.value = 'Failed to load walk requests';
           }
