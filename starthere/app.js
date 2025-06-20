@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql2/promise');
+const { wrap } = require('module');
 
 var app = express();
 
@@ -130,8 +131,7 @@ app.get('/api/dogs', async (req, res) => {
 //api for walkrequest
 app.get('/api/walkrequests/open', async (req, res) => {
   try {
-    const [walkRequests] = await db.execute(`SELECT 
-
+    const [walkRequests] = await db.execute(`SELECT wr.request_id, db.name AS
     `);
     res.json(walkRequests);
   } catch (err) {
