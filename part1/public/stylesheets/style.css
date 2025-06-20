@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(to right, #ff0909, #ffff00, #314cff, #00ff00);
   font-family: 'Papyrus', 'Courier New', fantasy;
-  color: #ff69b4;
+  color: #2bff00;
   animation: shake 0.9s infinite;
   cursor: none;
 }
