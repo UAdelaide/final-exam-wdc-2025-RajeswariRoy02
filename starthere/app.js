@@ -90,8 +90,9 @@ let db;
         ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('roy12', 'roy@example.com', 'hashed987', 'walker'),
-      ('edward34', 'cullen@example.com', 'hashed321', 'owner');
+        ('edward34', 'cullen@example.com', 'hashed321', 'owner');
       `);
+      await db
 
     }
   } catch (err) {
