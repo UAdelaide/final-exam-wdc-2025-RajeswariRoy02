@@ -5,7 +5,9 @@ body {
   animation: shake 0.9s infinite;
   cursor: none;
 }
-
+marquee{
+  for
+}
 @keyframes shake {
   0% { transform: translate(2px, 1px) rotate(0.5deg); }
   25% { transform: translate(-3px, 2px) rotate(-0.5deg); }
