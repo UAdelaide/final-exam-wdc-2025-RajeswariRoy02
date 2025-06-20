@@ -123,13 +123,12 @@
         }catch(err){
           console.error(err);
           this.dogGallery=[];
-        }finally{
           this.loadingDogs =false;
 
         }
       }
     },
-    mounted(){
+    onMounted(){
       this.loadAllDogsAndImages();
     }
   }).mount('#app');
