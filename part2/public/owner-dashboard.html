@@ -94,6 +94,11 @@
           try {
             const userRes = await fetch('/api/users/me');
             if (!userRes.ok) {
+              window.location.href = '/index.html';
+              throw new Error('Not authenticated');
+            }
+            const userData = await userRes.json();
+            const ownerId = userData.id;
 
 
         async function loadWalks() {
