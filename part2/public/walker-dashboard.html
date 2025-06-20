@@ -110,10 +110,10 @@
             }
           } catch (err){
             error.value = err.message;
-            message.value = ''; // Clear message if there's an error
+            message.value = ''; 
             console.error('Error applying to walk:', err);
           }
-          }
+        }
         async function logout() {
           try {
             const res = await fetch('/api/users/logout',{
