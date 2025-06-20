@@ -8,7 +8,7 @@ function isAuthenticated(req, res, next) {
     }
     res.status(401).json({ error: 'Unauthorized: Please log in.' });
 }
-
+router.get('/')
 
 
 router.get('/mine', isAuthenticated, async (req, res) => {
