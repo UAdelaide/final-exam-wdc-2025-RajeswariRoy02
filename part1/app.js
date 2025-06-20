@@ -90,6 +90,11 @@ if (userCount.count === 0) {
         ('edward34', 'cullen@example.com', 'hashed321', 'owner')
     `);
     await db.execute(`
-        
+        INSERT INTO Dogs (owner_id, name, size) VALUES
+((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+((SELECT user_id FROM Users WHERE username = 'alice123'), 'Vulu', 'large'),
+((SELECT user_id FROM Users WHERE username = 'carol123'), 'Tommy', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'edward34'), 'Butter', 'small');
         `)
 module.exports = app;
