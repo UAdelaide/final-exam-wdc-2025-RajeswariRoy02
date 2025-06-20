@@ -108,7 +108,9 @@
             throw new Error('Failed to fetch dog data from your server.');
           }
           this.dogGallery = await dogRes.json();
-        
+        }catch(err){
+          console.error(err)
+        }
 
 
       }
