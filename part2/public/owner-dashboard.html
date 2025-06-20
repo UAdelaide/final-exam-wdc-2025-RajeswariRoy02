@@ -120,7 +120,10 @@
             const res = await fetch ('/api/Users/logout',{
               method: 'POST',
               headers: {'Content-Type' : 'application/json'}
-            })
+            });
+            if (res.ok){
+              window.locat
+            }
           }
         }
 
