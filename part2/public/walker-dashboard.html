@@ -90,7 +90,7 @@
             return;
           }
           try {
-            const res = await fetch(`/api/walks/${requestId}/apply`, {
+            const res = await fetch(`/api/walksapplications/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
