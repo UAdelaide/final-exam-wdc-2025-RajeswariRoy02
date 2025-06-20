@@ -9,6 +9,7 @@ function isAuthenticated(req, res, next) {
     res.status(401).json({ error: 'Unauthorized: Please log in.' });
 }
 router.get('/mine', isAuthenticated, async (req, res) => {
+    console.log('Attempting to fetch dogs for owner:', req.session.user ? req.session.user.id : 'N/A');
     try {
         const ownerId = req.session.user.id;
 
