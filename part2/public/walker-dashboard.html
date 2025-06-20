@@ -134,7 +134,8 @@
         }
 
         onMounted(async() => {
-          loadWalkRequests();
+          await getCurrentUser();
+          await loadAvailableWalks();
         });
 
         return {
