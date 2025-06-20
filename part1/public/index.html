@@ -15,5 +15,25 @@
     <p><b>Breed:Bengal Tiger Dog</b></p>
     <button type="button" class="click-button" @click="fetchDog">CLICK TO UNLEASH THE BEAST</button>
 </div>
+<script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          dogImage: ''
+        };
+      },
+      methods: {
+        async fetchDog() {
+          const res = await fetch('https://dog.ceo/api/breeds/image/random');
+          const data = await res.json();
+          this.dogImage = data.message;
+        }
+      },
+      mounted() {
+        this.fetchDog();
+      }
+    }).mount('#app');
+  </script>
 </body>
 </html>
