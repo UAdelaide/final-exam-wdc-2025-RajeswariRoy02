@@ -26,7 +26,6 @@ h1 {
 }
 
 .dog-img {
-  border: 15px double red;
   display: block;
   margin: 50px auto;
   filter: grayscale(100%) blur(5px);
