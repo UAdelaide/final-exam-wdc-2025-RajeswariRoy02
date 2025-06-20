@@ -109,7 +109,10 @@
 
             }
           } catch (err){
-            
+            error.value = err.message;
+            message.value = ''; // Clear message if there's an error
+            console.error('Error applying to walk:', err);
+          }
           }
         async function logout() {
           try {
