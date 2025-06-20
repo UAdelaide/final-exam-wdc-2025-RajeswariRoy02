@@ -1,7 +1,7 @@
 body {
-  background: linear-gradient(to right, rgb(255, 57, 146), yellow, cyan, lime);
+  background: linear-gradient(to right, rgb(255, 57, 146), #ffff00, #00ffff, #00ff00);
   font-family: 'Papyrus', 'Courier New', fantasy;
-  color: hotpink;
+  color: #ff69b4;
   animation: shake 0.9s infinite;
   cursor: none;
 }
@@ -50,7 +50,7 @@ h1 {
 p {
   font-size: 60px;
   text-align: center;
-  background: linear-gradient(90deg, #ffff00, orange);
+  background: linear-gradient(90deg, #ffff00, #ffa500);
   padding: 20px;
   transform: skewX(20deg);
 }
