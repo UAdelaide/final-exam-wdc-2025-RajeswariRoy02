@@ -44,11 +44,14 @@
               <div class="dog-details">
                   <h5 class="card-title">{{ dog.name }}</h5>
                   <p class="card-text">Size: {{ dog.size }}</p>
-                  <p class="card-text">Owner ID: {{ dog.owner_id }}</p> 
+                  <p class="card-text">Owner ID: {{ dog.owner_id }}</p>
               </div>
           </div>
       </div>
   </div>
+</div>
+<div v-else class="alert alert-warning text-center">
+  No dog data available to display at the moment.
 </div>
 
 
