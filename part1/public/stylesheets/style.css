@@ -6,7 +6,9 @@ body {
   cursor: none;
 }
 marquee{
-  for
+  font-size: 20px;
+  color: #333;
+  background-color: #56ea00;
 }
 @keyframes shake {
   0% { transform: translate(2px, 1px) rotate(0.5deg); }
