@@ -41,7 +41,7 @@ h1 {
   margin: 20px auto;
   display: block;
   border-radius: 50%;
-  border: 5px dotted #ff00ff;
+  border: 10px dotted #ff00ff;
   animation: pulse 1s infinite alternate;
 }
 
