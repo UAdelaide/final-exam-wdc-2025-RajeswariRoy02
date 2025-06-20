@@ -18,7 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-let db;
 
 (async () => {
     const connection = await mysql.createConnection({
