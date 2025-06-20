@@ -76,10 +76,9 @@
             const res = await fetch('/api/walks');
             if (!res.ok) throw new Error('Failed to load walk requests');
             const allWalks = await res.json();
-            // Filter walks to only show 'open' requests to the walker
             availableWalks.value = allWalks.filter(walk => walk.status === 'open');
           } catch (err) {
-            error.value = err.message;
+            error.value = err.message|| 'Failed to load available walk requests.';
           }
         }
 
