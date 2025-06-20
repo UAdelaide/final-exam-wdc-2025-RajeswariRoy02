@@ -119,7 +119,7 @@
           try {
             const res = await fetch ('/api/Users/logout',{
               method: 'POST',
-              headers:
+              headers: {'Content-Type' : application/json}
             })
           }
         }
