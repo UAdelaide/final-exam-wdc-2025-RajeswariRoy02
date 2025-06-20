@@ -71,7 +71,7 @@
             return null;
           }
         }
-        async function loadWalkRequests() {
+        async function loadAvailableWalks() {
           try {
             const res = await fetch('/api/walks');
             if (!res.ok) throw new Error('Failed to load walk requests');
