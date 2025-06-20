@@ -89,5 +89,7 @@ if (userCount.count === 0) {
         ('roy12', 'roy@example.com', 'hashed987', 'walker'),
         ('edward34', 'cullen@example.com', 'hashed321', 'owner')
     `);
-
+    await db.execute(`
+        
+        `)
 module.exports = app;
