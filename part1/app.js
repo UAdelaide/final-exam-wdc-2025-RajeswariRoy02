@@ -27,4 +27,10 @@ app.use('/users', usersRouter);
     });
 await connection.query('CREATE DATABASE IF NOT EXISTS DoggyWalky');
 await connection.end();
+const db = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'DoggyWalky'
+  });
 module.exports = app;
