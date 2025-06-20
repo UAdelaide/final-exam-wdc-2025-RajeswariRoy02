@@ -58,7 +58,10 @@
             }
             const userData = await res.json();
             if (userData.role !== 'walker') {
-              
+              error.value = 'Access Denied: Only walkers can view this dashboard.';
+                window.location.href = '/index.html';
+                return null;
+            }
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
