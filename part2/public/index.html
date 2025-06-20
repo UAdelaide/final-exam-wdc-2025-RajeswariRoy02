@@ -18,8 +18,8 @@
         Login
       </div>
       <div class="card-body">
-        <form @submit.prevent="login">
-         <div class="mb-3">
+      <form @submit.prevent="handleLogin">
+        <div class="mb-3">
           <label for ="username" class="form-label">Username</label>
           <input type="text" v-model="username" class="form-control" id="username" required>
         </div>
@@ -28,6 +28,7 @@
           <input type="password" v-model="password" class="form-control" id="password" required>
         </div>
         <button type="submit" class="btn btn-primary">Log In</button>
+        <p v-if="loginError" class="text-danger mt-3">{{ loginError }}</p>
       </form>
     </div>
   </div>
@@ -35,7 +36,7 @@
 
 
   <hr class="my-5">
-  <h2 class="mb-4 text-secondary">All Dogs</h2>
+  <h2 class="mb-4 text-secondary">All Registered Dogs</h2>
   <div v-if="loadingDogs" class="text-center my-5">
       <div class="spinner-border text-secondary" role="status">
           <span class="visually-hidden">Loading dogs...</span>
@@ -78,7 +79,7 @@
 
 
   <script>
-    const { createApp, ref, onMounted } = Vue;
+    const { createApp } = Vue;
     createApp({
       data() {
         return {
