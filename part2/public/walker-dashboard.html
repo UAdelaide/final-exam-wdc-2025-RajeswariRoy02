@@ -101,7 +101,7 @@
             const result = await res.json();
 
             if (res.ok){
-              message.value=result.message
+              message.value=result.message|| 'Successfully applied to walk!';
             }
 
             if (!res.ok){
