@@ -107,7 +107,10 @@
                   console.warn(`Failed to fetch image for dog ${dog.name}. Status: ${imgRes.status}`);
                   return { ...dog, imageUrl: null };
               }
+              const imgData = await imgRes.json();
+              return { ...dog, imageUrl: imgData.message };
               
+
 
 
 
