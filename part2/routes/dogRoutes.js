@@ -19,4 +19,5 @@ router.get('/mine', isAuthenticated, async (req, res) => {
             'SELECT dog_id, name, size FROM Dogs WHERE owner_id = ?',
             [ownerID]
         );
-        res.json
+        res.json(rows);
+        
