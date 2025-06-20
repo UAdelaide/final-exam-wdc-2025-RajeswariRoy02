@@ -100,6 +100,11 @@
             const userData = await userRes.json();
             const ownerId = userData.id;
 
+            if (userData.role !== 'owner') {
+                error.value = 'Access Denied: Only owners can view this dashboard.';
+                window.location.href = '/index.html';
+                ret
+
 
         async function loadWalks() {
           try {
