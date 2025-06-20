@@ -87,6 +87,6 @@ if (userCount.count === 0) {
         ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('roy12', 'roy@example.com', 'hashed987', 'walker'),
-        ('sophiemay', 'sophie@example.com', 'hashed321', 'owner')
+        ('edward34', 'sophie@example.com', 'hashed321', 'owner')
     `);
 module.exports = app;
