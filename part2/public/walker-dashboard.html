@@ -44,10 +44,10 @@
 
     createApp({
       setup() {
-        const availablewalks = ref([]);
+        const availableWalks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = 3;
+        const currentUserId = ref(null);
 
         async function loadWalkRequests() {
           try {
