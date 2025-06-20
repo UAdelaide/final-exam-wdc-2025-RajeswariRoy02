@@ -124,7 +124,11 @@
             if (res.ok){
               window.location.href='/index.html';
             } else {
-              
+              const errorData = await res.json();
+              error.value = errorData.message || 'Logout failed. Please try again.';
+              console.error('Logout failed:', errorData);
+            }
+            
             }
             }
           }
