@@ -130,8 +130,8 @@ app.get('/api/dogs', async (req, res) => {
 //api for walkrequest
 app.get('/api/walkrequests/open', async (req, res) => {
   try {
-    const [walkRequests] = await db.execute(`
-      
+    const [walkRequests] = await db.execute(`SELECT 
+
     `);
     res.json(walkRequests);
   } catch (err) {
