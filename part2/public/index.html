@@ -114,7 +114,7 @@
               const imgData = await imgRes.json();
               return { ...dog, imageUrl: imgData.message };
           } catch {
-        return { ...dog, imageUrl: null };
+            return { ...dog, imageUrl: null };
       }
     });
 
