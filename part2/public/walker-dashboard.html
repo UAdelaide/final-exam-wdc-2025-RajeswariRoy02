@@ -100,7 +100,9 @@
             });
             const result = await res.json();
 
-            if (res.ok)
+            if (res.ok){
+              message.value=result.message
+            }
 
             if (!res.ok){
               throw new Error(result.error || 'Application failed');
