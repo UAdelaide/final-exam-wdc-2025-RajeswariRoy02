@@ -64,27 +64,24 @@
 
 
 
-  <script>
-    const { createApp } = Vue;
-    createApp({
-      data() {
-        return {
-          message: 'Welcome to the Dog Walking Service!',
-          username:'',
-          password:'',
-          dogGallery:[],
-          loadingDogs: true,
+<script>
+  const { createApp, ref, onMounted } = Vue;
 
-        };
-      },
-      methods: {
-      async login() {
+  createApp({
+    setup() {
+      const message = ref('Welcome to the Dog Walking Service!');
+      const username = ref('');
+      const password = ref('');
+      const dogGallery = ref([]);
+      const loadingDogs = ref(true);
+
+      async function login() {
         const res = await fetch('/api/users/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            username: this.username,
-            password: this.password
+            username: username.value,
+            password: password.value
           })
         });
         if (res.ok) {
@@ -99,40 +96,50 @@
         } else {
           alert('Login failed. Please check your credentials.');
         }
-      },
-      async loadAllDogsAndImages(){
-        this.loadingDogs = true;
+      }
+
+      async function loadAllDogsAndImages() {
+        loadingDogs.value = true;
         try {
           const dogsRes = await fetch('/api/dogs');
-          if (!dogsRes.ok) {
-            throw new Error('Failed to fetch dog data from your server.');
-          }
+          if (!dogsRes.ok) throw new Error('Failed to fetch dog data from your server.');
           const dogs = await dogsRes.json();
+
           const dogPromises = dogs.map(async (dog) => {
             try {
               const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
               const imgData = await imgRes.json();
               return { ...dog, imageUrl: imgData.message };
-          } catch {
-            return { ...dog, imageUrl: null };
-      }
-    });
-    this.dogGallery = await Promise.all(dogPromises);
-    this.loadingDogs = false;
+            } catch {
+              return { ...dog, imageUrl: null };
+            }
+          });
 
-        }catch(err){
-          console.error(err);
-          this.dogGallery=[];
-          this.loadingDogs =false;
-
+          dogGallery.value = await Promise.all(dogPromises);
+        } catch (err) {
+          console.error('Error loading dog data:', err);
+          dogGallery.value = [];
+        } finally {
+          loadingDogs.value = false;
         }
       }
-    },
-    onMounted(){
-      this.loadAllDogsAndImages();
+
+      onMounted(() => {
+        loadAllDogsAndImages();
+      });
+
+      return {
+        message,
+        username,
+        password,
+        dogGallery,
+        loadingDogs,
+        login
+      };
     }
   }).mount('#app');
   </script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
