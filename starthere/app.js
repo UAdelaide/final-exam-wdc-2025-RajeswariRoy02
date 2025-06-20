@@ -100,7 +100,9 @@ let db;
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Tommy', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'edward34'), 'Butter', 'small');
         `);
-      awa
+      await db.execute(`
+        
+        `);
 
     }
   } catch (err) {
