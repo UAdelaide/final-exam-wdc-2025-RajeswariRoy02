@@ -25,5 +25,6 @@ app.use('/users', usersRouter);
       user: 'root',
       password: '',
     });
-
+await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
+await connection.end();
 module.exports = app;
