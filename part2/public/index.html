@@ -109,7 +109,7 @@
               }
               const imgData = await imgRes.json();
               return { ...dog, imageUrl: imgData.message };
-            } catch (imgError) {
+          } catch (imgError) {
               console.error(`Error fetching image for dog ${dog.name}:`, imgError);
               return { ...dog, imageUrl: null };
 
