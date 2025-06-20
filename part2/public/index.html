@@ -104,19 +104,15 @@
 
             const dogPromises = dogs.map(async (dog) => {
               try{
-                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
-                if (!imgRes.ok) {
+              if (!imgRes.ok) {
                   console.warn(`Failed to fetch image for dog ${dog.name}. Status: ${imgRes.status}`);
                   return { ...dog, imageUrl: null };
-                }
-                const imgData = await imgRes.json();
-                return { ...dog, imageUrl: imgData.message };
-              } catch (imgError) {
-                console.error(`Error fetching image for dog ${dog.name}:`, imgError);
-                return { ...dog, imageUrl: null };
               }
-            });
-            this.dogGalleryz
+              const imgData = await imgRes.json();
+              return { ...dog, imageUrl: imgData.message };
+          } catch (imgError) {
+              console.error(`Error fetching image for dog ${dog.name}:`, imgError);
+              return { ...dog, imageUrl: null };
 
 
 
