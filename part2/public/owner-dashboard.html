@@ -103,7 +103,9 @@
             if (userData.role !== 'owner') {
                 error.value = 'Access Denied: Only owners can view this dashboard.';
                 window.location.href = '/index.html';
-                ret
+                return;
+            }
+            
 
 
         async function loadWalks() {
