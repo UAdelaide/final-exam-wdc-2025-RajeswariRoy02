@@ -50,7 +50,10 @@
         const currentUserId = ref(null);
 
         async function getCurrentUser() {
-          
+          try {
+            const res = await fetch('/api/users/me');
+            if (!res.ok) {
+              
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
