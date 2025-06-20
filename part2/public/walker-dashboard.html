@@ -56,7 +56,9 @@
               window.location.href = '/index.html';
               throw new Error('Not authenticated');
             }
-            
+            const userData = await res.json();
+            if (userData.role !== 'walker') {
+              
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
