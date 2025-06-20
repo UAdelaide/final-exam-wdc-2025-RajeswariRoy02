@@ -14,7 +14,8 @@
     <p class="lead">Welcome to the Dog Walking Service!</p>
     <form @submit.prevent="login">
       <label for ="username" class="form-label">Username</label>
-      <input type="text" v-model="username" class="form-control" id
+      <input type="text" v-model="username" class="form-control" id="username" required>
+      
     </form>
 
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
