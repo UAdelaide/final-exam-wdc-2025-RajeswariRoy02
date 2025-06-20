@@ -106,7 +106,15 @@
                 return;
             }
             const dogsRes = await fetch(`/api/dogs/mine`);
-            
+            if (!dogsRes.ok) {
+              throw new Error('Failed to fetch your dogs.');
+            }
+            ownerDogs.value = await dogsRes.json();
+          } catch (err) {
+            error.value = err.message || 'Error fetching your dogs.';
+            console.error('Error fetching owner\'s dogs:', err);
+          }
+        }
 
 
 
