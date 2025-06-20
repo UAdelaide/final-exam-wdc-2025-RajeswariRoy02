@@ -32,13 +32,13 @@ h1 {
 }
 
 .click-button {
-  background-color: chartreuse;
+  background-color: #7fff00;
   font-size: 30px;
   padding: 40px;
   margin: 20px auto;
   display: block;
   border-radius: 50%;
-  border: 5px dotted fuchsia;
+  border: 5px dotted #ff00ff;
   animation: pulse 1s infinite alternate;
 }
 
@@ -50,7 +50,7 @@ h1 {
 p {
   font-size: 60px;
   text-align: center;
-  background: linear-gradient(90deg, yellow, orange);
+  background: linear-gradient(90deg, #ffff00, orange);
   padding: 20px;
   transform: skewX(20deg);
 }
