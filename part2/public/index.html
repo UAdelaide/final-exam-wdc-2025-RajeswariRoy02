@@ -18,7 +18,7 @@
         Login
       </div>
       <div class="card-body">
-        <form @submit.prevent="handleLogin">
+        <form @submit.prevent="login">
          <div class="mb-3">
           <label for ="username" class="form-label">Username</label>
           <input type="text" v-model="username" class="form-control" id="username" required>
@@ -28,7 +28,6 @@
           <input type="password" v-model="password" class="form-control" id="password" required>
         </div>
         <button type="submit" class="btn btn-primary">Log In</button>
-        <p v-if="loginError" class="text-danger mt-3">{{ loginError }}</p>
       </form>
     </div>
   </div>
