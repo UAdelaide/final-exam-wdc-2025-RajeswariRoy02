@@ -25,31 +25,42 @@
 
     </form>
 
-  </div>
-  <h2 class="mb-4 text-secondary">See all the Dogs</h2>
-  <div v-if="loadingDogs" class="text-center my-5">
-    <div class="spinner-border text-secondary" role="status">
-      <span class="visually-hidden">Loading dogs...</span>
-  </div>
-  <p class="mt-2">Loading dog data and photo</p>
-</div>
-<div v-else-if="dogGallery.length > 0">
-  <div class="card">
-      <div class="card-body">
-          <div class="dog-row" v-for="dog in dogGallery" :key="dog.dog_id">
-              <img :src="dog.imageUrl || 'https://placehold.co/100x100/CCCCCC/FFFFFF?text=No+Image'"
-                   alt="Random Dog Image"
-                   class="dog-image rounded-circle"
-                   @error="dog.imageUrl = 'https://placehold.co/100x100/CCCCCC/FFFFFF?text=Error'" />
-              <div class="dog-details">
-                  <h5 class="card-title">{{ dog.name }}</h5>
-                  <p class="card-text">Size: {{ dog.size }}</p>
-                  <p class="card-text">Owner ID: {{ dog.owner_id }}</p>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+    <h2 class="mb-4 text-secondary">All Registered Dogs</h2>
+    <div v-if="loadingDogs" class="text-center my-5">
+        <div class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Loading dogs...</span>
+        </div>
+        <p class="mt-2">Loading dog data and photos...</p>
+    </div>
+    <div v-else-if="dogGallery.length > 0">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Dog ID</th>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Owner ID</th>
+                        <th>Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="dog in dogGallery" :key="dog.dog_id">
+                        <td>{{ dog.dog_id }}</td>
+                        <td>{{ dog.name }}</td>
+                        <td>{{ dog.size }}</td>
+                        <td>{{ dog.owner_id }}</td>
+                        <td>
+                            <img :src="dog.imageUrl || 'https://placehold.co/60x60/CCCCCC/FFFFFF?text=No+Image'"
+                                 alt="Random Dog Image"
+                                 class="dog-image"
+                                 @error="dog.imageUrl = 'https://placehold.co/60x60/CCCCCC/FFFFFF?text=Error'" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 <div v-else class="alert alert-warning text-center">
   No dog data available to display at the moment.
 </div>
@@ -129,7 +140,7 @@
     },
     mounted(){
       this.loadAllDogsAndImages();
-    
+
     }).mount('#app');
   </script>
 
