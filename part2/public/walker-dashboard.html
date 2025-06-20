@@ -79,6 +79,7 @@
             availableWalks.value = allWalks.filter(walk => walk.status === 'open');
           } catch (err) {
             error.value = err.message|| 'Failed to load available walk requests.';
+            console.error('Error loading available walk requests:', err);
           }
         }
 
