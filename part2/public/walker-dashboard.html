@@ -62,6 +62,8 @@
                 window.location.href = '/index.html';
                 return null;
             }
+            currentUserId.value = userData.id;
+            
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
