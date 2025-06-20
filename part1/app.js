@@ -97,4 +97,7 @@ if (userCount.count === 0) {
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Tommy', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'edward34'), 'Butter', 'small');
         `)
+    await db.execute(`
+        
+        `)
 module.exports = app;
