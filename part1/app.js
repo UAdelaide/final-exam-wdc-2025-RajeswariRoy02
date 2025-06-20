@@ -154,4 +154,5 @@ app.get('/api/walkers/summary', async (req, res) => {
         WHERE u.role = 'walker'
         GROUP BY u.username
     `);
+    res.json(summary)
 module.exports = app;
