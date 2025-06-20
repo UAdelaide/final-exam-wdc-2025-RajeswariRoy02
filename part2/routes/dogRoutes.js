@@ -11,8 +11,7 @@ function isAuthenticated(req, res, next) {
 router.get('/', async(req,res) =>{
     try {
         const [rows] = await db.query(
-            'SELECT * FROM Dogs'
-        );
+            'SELECT * FROM Dogs');
         res.json(rows);
     } catch (error) {
         console.error('Error fetching all dogs:', error);
