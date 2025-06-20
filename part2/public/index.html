@@ -33,6 +33,24 @@
   </div>
   <p class="mt-2">Loading dog data and photo</p>
 </div>
+<div v-else-if="dogGallery.length > 0">
+  <div class="card">
+      <div class="card-body">
+          <div class="dog-row" v-for="dog in dogGallery" :key="dog.dog_id">
+              <img :src="dog.imageUrl || 'https://placehold.co/100x100/CCCCCC/FFFFFF?text=No+Image'"
+                   alt="Random Dog Image"
+                   class="dog-image rounded-circle"
+                   @error="dog.imageUrl = 'https://placehold.co/100x100/CCCCCC/FFFFFF?text=Error'" />
+              <div class="dog-details">
+                  <h5 class="card-title">{{ dog.name }}</h5>
+                  <p class="card-text">Size: {{ dog.size }}</p>
+                  <!-- You could also display the owner here if needed, by fetching owner details -->
+                  <!-- <p class="card-text">Owner ID: {{ dog.owner_id }}</p> -->
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
 
 
