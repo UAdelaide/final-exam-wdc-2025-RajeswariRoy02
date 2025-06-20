@@ -116,7 +116,8 @@
                 return { ...dog, imageUrl: null };
               }
             });
-            this.dogGa
+            this.dogGallery = await Promise.all(dogPromises);
+        }
 
 
 
