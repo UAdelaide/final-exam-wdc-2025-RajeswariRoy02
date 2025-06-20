@@ -8,7 +8,7 @@ function isAuthenticated(req, res, next) {
     }
     res.status(401).json({ error: 'Unauthorized: Please log in.' });
 }
-router.get('/', async(req,res) =>){
+router.get('/', async(req,res) =>{
     try {
         const [rows] = await db.query(
             'SELECT dog_id, name, size, owner_id FROM Dogs'
