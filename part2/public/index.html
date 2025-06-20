@@ -105,8 +105,8 @@
         try {
           const dogsRes = await fetch('/api/dogs');
           if (!dogsRes.ok) {
-              throw new Error('Failed to fetch dog data from your server.');
-            }
+            throw new Error('Failed to fetch dog data from your server.');
+          }
             const dogs = await dogsRes.json();
 
             const dogPromises = dogs.map(async (dog) => {
