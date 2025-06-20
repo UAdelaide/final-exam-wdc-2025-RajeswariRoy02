@@ -134,7 +134,7 @@
             console.error('Network error during logout:', err);
           }
         }
-        
+
         onMounted(() => {
           loadWalks();
         });
@@ -144,7 +144,8 @@
           walks,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+          logout
         };
       }
     }).mount('#app');
