@@ -68,6 +68,8 @@ router.post('/login', async (req, res) => {
 router.post('/logout',(req,res)=>{
   if (req.session) {
     req.session.destroy(err => {
+      if (err) {
+        console.error("Error destroying session:", err);
 })
 
 module.exports = router;
