@@ -12,12 +12,13 @@ app.use(session({
     secret: 'dogsecret', // use env var in real apps
     resave: false,
     saveUninitialized: false
-    cookie: { maxAge: 24 * 60 * 60 * 1000 } //ses
+    cookie: { maxAge: 24 * 60 * 60 * 1000 } //session lasts 24 hours
   }));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
+const dogRoutes = 
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
