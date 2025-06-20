@@ -117,6 +117,8 @@
             return { ...dog, imageUrl: null };
       }
     });
+    this.dogGallery = await Promise.all(dogPromises);
+    this.loadingDogs = false;
 
         }catch(err){
           console.error(err);
