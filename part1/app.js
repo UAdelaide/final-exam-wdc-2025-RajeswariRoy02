@@ -98,7 +98,7 @@ if (userCount.count === 0) {
         ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('roy12', 'roy@example.com', 'hashed987', 'walker'),
-        ('edward34', 'cullen@example.com', 'hashed321', 'owner')
+        ('edward34','cullen@example.com', 'hashed321', 'owner')
     `);
     await db.execute(`
         INSERT INTO Dogs (owner_id, name, size) VALUES
@@ -114,7 +114,7 @@ if (userCount.count === 0) {
         ((SELECT dog_id FROM Dogs WHERE name = 'Bella'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Vulu'), '2025-06-11 07:15:00', 60, 'Henley Beach', 'open'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Tommy'), '2025-06-11 16:00:00', 20, 'Glenelg Jetty', 'cancelled'),
-        ((SELECT dog_id FROM Dogs WHERE name = 'Butter'), '2025-06-12 10:30:00', 40, 'Adelaide Botanic Garden', 'completed');
+        ((SELECT dog_id FROM Dogs WHERE name = 'Butter'), '2025-06-12 10:30:00', 40, 'Adelaide Botanic Garden', 'completed')
         `);
     }
 } catch (err) {
