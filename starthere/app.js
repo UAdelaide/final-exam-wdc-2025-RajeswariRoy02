@@ -80,10 +80,9 @@ let db;
         FOREIGN KEY (owner_id) REFERENCES Users(user_id)
       )
     `);
-    
 
     // Insert data if table is empty
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
+    const [userCount] = await db.execute('SELECT COUNT(*) AS count FROM books');
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO books (title, author) VALUES
