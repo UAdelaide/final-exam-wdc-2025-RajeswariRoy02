@@ -104,19 +104,9 @@
               message.value=result.message|| 'Successfully applied to walk!';
               error.value ='';
               await loadAvailableWalks();
+            }else{
+              
             }
-
-            if (!res.ok){
-              throw new Error(result.error || 'Application failed');
-            message.value = result.message;
-            error.value = '';
-            await loadWalkRequests();
-          } catch (err) {
-            error.value = err.message;
-            message.value = '';
-            console.error('Error applying to walk:',err);
-          }
-        }
         async function logout() {
           try {
             const res = await fetch('/api/users/logout',{
