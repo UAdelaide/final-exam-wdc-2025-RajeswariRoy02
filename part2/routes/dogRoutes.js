@@ -20,4 +20,10 @@ router.get('/mine', isAuthenticated, async (req, res) => {
             [ownerID]
         );
         res.json(rows);
-        
+    } catch (error) {
+        console.error('Error fetching owner\'s dogs:', error);
+        res.status(500).json({ error: 'Failed to fetch dogs.' });
+    }
+});
+
+module.exports = router;
