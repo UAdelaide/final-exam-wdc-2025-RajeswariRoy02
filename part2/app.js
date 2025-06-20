@@ -12,6 +12,7 @@ app.use(session({
     secret: 'dogsecret', // use env var in real apps
     resave: false,
     saveUninitialized: false
+    cookie: { maxAge: 24 * 60 * 60 * 1000 } //ses
   }));
 
 // Routes
