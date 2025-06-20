@@ -28,7 +28,12 @@
   </div>
   <h2 class="mb-4 text-secondary">See all the Dogs</h2>
   <div v-if="loadingDogs" class="text-center my-5">
-    
+    <div class="spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Loading dogs...</span>
+  </div>
+  <p class="mt-2">Loading dog data and photos...</p>
+</div>
+
 
 
   <script>
