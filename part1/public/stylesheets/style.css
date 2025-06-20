@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to right, magenta, yellow, cyan, lime);
+  background: linear-gradient(to right, rgb(255, 57, 146), yellow, cyan, lime);
   font-family: 'Papyrus', 'Courier New', fantasy;
   color: hotpink;
   animation: shake 0.9s infinite;
