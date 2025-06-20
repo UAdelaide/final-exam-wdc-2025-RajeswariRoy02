@@ -104,5 +104,6 @@ if (userCount.count === 0) {
         ((SELECT dog_id FROM Dogs WHERE name = 'Vulu'), '2025-06-11 07:15:00', 60, 'Henley Beach', 'open'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Tommy'), '2025-06-11 16:00:00', 20, 'Glenelg Jetty', 'cancelled'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Butter'), '2025-06-12 10:30:00', 40, 'Adelaide Botanic Garden', 'completed');
-        `)
+        `);
+    
 module.exports = app;
