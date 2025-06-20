@@ -64,8 +64,13 @@
             }
             currentUserId.value = userData.id;
             console.log('Current Walker ID:', currentUserId.value);
-            return userData.id; 
-            
+            return userData.id;
+          } catch (err) {
+            error.value = err.message || 'Error getting current user details.';
+            console.error('Error getting current user:', err);
+            return null;
+          }
+        }
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
