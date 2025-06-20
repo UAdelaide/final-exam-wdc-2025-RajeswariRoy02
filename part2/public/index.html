@@ -10,14 +10,14 @@
 <body class="bg-light">
 
   <div id="app" class="container py-5">
-    <h1 class="mb-4 text-primary">Welcome to the Dog Walking Service!</h1>
-    <p class="lead">Connect with trusted walkers for your beloved dog </p>
+    <h1 class="mb-4 text-primary">{{ message }}</h1>
+    <p class="lead">Welcome to the Dog Walking Service!</p>
 
-    <div class="card mb-5 login-card">
+    <!-- Login Form -->
+    <div class="card mb-5">
       <div class="card-header bg-primary text-white">
-        Log In
+        Login
       </div>
-
       <div class="card-body">
         <form @submit.prevent="login">
           <div class="mb-3">
@@ -30,9 +30,8 @@
           </div>
           <button type="submit" class="btn btn-primary">Log In</button>
         </form>
-
+      </div>
     </div>
-  </div>
 
   <h2 class="mb-4 text-secondary">See all the Dogs</h2>
   <div v-if="loadingDogs" class="text-center my-5">
