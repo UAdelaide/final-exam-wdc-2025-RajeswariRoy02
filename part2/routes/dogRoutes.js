@@ -8,6 +8,9 @@ function isAuthenticated(req, res, next) {
     }
     res.status(401).json({ error: 'Unauthorized: Please log in.' });
 }
+
+
+
 router.get('/mine', isAuthenticated, async (req, res) => {
         const ownerId = req.session.user.id;
         try{
