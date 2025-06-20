@@ -11,15 +11,13 @@ function isAuthenticated(req, res, next) {
 router.get('/mine', isAuthenticated, async (req, res) => {
         const ownerId = req.session.user.id;
         try{
-            
-        }
 
         if (!ownerId) {
             return res.status(400).json({ error: 'Owner ID not found in session.' });
         }
         const [rows]=await db.query(
             'SELECT dog_id, name, size FROM Dogs WHERE owner_id = ?',
-            [ownerID]
+            [ownerId]
         );
         res.json(rows);
     } catch (error) {
