@@ -25,7 +25,7 @@ let db;
     });
 await connection.query('CREATE DATABASE IF NOT EXISTS DoggyWalky');
 await connection.end();
-const db = await mysql.createConnection({
+db = await mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
