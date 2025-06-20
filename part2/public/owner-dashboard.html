@@ -178,12 +178,14 @@
         }
 
         onMounted(() => {
+          loadOwnerDogs();
           loadWalks();
         });
 
         return {
           form,
           walks,
+          owner
           message,
           error,
           submitWalkRequest,
