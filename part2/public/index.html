@@ -104,6 +104,7 @@
 
             const dogPromises = dogs.map(async (dog) => {
               try{
+                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
               if (!imgRes.ok) {
                   console.warn(`Failed to fetch image for dog ${dog.name}. Status: ${imgRes.status}`);
                   return { ...dog, imageUrl: null };
