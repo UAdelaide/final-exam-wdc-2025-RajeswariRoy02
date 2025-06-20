@@ -105,7 +105,9 @@
                 window.location.href = '/index.html';
                 return;
             }
+            const dogsRes = await fetch(`/api/dogs/mine`);
             
+
 
 
         async function loadWalks() {
