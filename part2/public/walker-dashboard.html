@@ -63,6 +63,8 @@
                 return null;
             }
             currentUserId.value = userData.id;
+            console.log('Current Walker ID:', currentUserId.value);
+            return userData.id; 
             
         async function loadWalkRequests() {
           try {
