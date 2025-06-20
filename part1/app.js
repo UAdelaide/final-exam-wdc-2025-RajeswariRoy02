@@ -160,4 +160,5 @@ app.get('/api/walkers/summary', async (req, res) => {
 
       }
     });
+app.use(express.static())
 module.exports = app;
