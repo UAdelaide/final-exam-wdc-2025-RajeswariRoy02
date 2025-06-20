@@ -85,7 +85,10 @@
 
         async function applyToWalk(requestId) {
           if (currentUserId.value === null) {
-            
+            error.value = 'Error: Walker ID not available. Please try logging in again.';
+            console.error('Walker ID is null when trying to apply to walk.');
+            return; 
+          }
           try {
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
