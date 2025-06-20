@@ -9,64 +9,58 @@
 </head>
 <body class="bg-light">
 
-  <div class="app" class=z
-    <div class="card-header bg-primary text-white">
-      Login
-    </div>
-    <div class="card-body">
-      <form @submit.prevent="handleLogin">
-        <div class="mb-3">
-          <label for ="username" class="form-label">Username</label>
-          <input type="text" v-model="username" class="form-control" id="username" required>
-        </div>
-        <div class ="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" v-model="password" class="form-control" id="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Log In</button>
-        <p v-if="loginError" class="text-danger mt-3">{{ loginError }}</p>
-      </form>
-    </div>
-  </div>
-
-
-
-  <hr class="my-5">
-  <h2 class="mb-4 text-secondary">All Registered Dogs</h2>
-  <div v-if="loadingDogs" class="text-center my-5">
-      <div class="spinner-border text-secondary" role="status">
-          <span class="visually-hidden">Loading dogs...</span>
+  <div id="app" class="container py-5">
+    <h1 class="mb-4 text-primary">Welcome to the Dog Walking Service!</h1>
+    <p class="lead">Connect with trusted walkers for your beloved </p>
+    <form @submit.prevent="login">
+      <div class="mb-3">
+        <label for ="username" class="form-label">Username</label>
+        <input type="text" v-model="username" class="form-control" id="username" required>
       </div>
-      <p class="mt-2">Loading dog data and photos...</p>
-  </div>
-  <div v-else-if="dogGallery.length > 0">
-      <div class="table-responsive">
-          <table class="table table-striped table-hover align-middle">
-              <thead>
-                  <tr>
-                      <th>Dog ID</th>
-                      <th>Name</th>
-                      <th>Size</th>
-                      <th>Owner ID</th>
-                      <th>Photo</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr v-for="dog in dogGallery" :key="dog.dog_id">
-                      <td>{{ dog.dog_id }}</td>
-                      <td>{{ dog.name }}</td>
-                      <td>{{ dog.size }}</td>
-                      <td>{{ dog.owner_id }}</td>
-                      <td>
-                          <img :src="dog.imageUrl || 'https://placehold.co/100x100/CCCCCC/FFFFFF?text=No+Image'"
-                               alt="Random Dog Image"
-                               class="dog-image" />
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
+      <div class ="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" v-model="password" class="form-control" id="password" required>
       </div>
-  </div>
+      <button type="submit" class="btn btn-primary">Log In</button>
+
+    </form>
+
+    <h2 class="mb-4 text-secondary">All Registered Dogs</h2>
+    <div v-if="loadingDogs" class="text-center my-5">
+        <div class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Loading dogs...</span>
+        </div>
+        <p class="mt-2">Loading dog data and photos...</p>
+    </div>
+    <div v-else-if="dogGallery.length > 0">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Dog ID</th>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Owner ID</th>
+                        <th>Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="dog in dogGallery" :key="dog.dog_id">
+                        <td>{{ dog.dog_id }}</td>
+                        <td>{{ dog.name }}</td>
+                        <td>{{ dog.size }}</td>
+                        <td>{{ dog.owner_id }}</td>
+                        <td>
+                            <img :src="dog.imageUrl || 'https://placehold.co/60x60/CCCCCC/FFFFFF?text=No+Image'"
+                                 alt="Random Dog Image"
+                                 class="dog-image"
+                                 @error="dog.imageUrl = 'https://placehold.co/60x60/CCCCCC/FFFFFF?text=Error'" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 <div v-else class="alert alert-warning text-center">
   No dog data available to display at the moment.
 </div>
