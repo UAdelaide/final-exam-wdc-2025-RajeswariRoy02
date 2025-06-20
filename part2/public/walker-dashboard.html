@@ -21,7 +21,7 @@
     <!-- Walk requests list -->
     <h2 class="mb-3">Available Walk Requests</h2>
     <div class="row" v-if="availableWalks.length > 0">
-      <div class="col-md-6 mb-4" v-for="walk in walks" :key="walk.request_id">
+      <div class="col-md-6 mb-4" v-for="walk in availableWalks" :key="walk.request_id">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Walk for {{ walk.dog_name }} ({{ walk.size }})</h5>
