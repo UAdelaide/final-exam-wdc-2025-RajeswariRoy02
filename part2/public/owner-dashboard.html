@@ -25,7 +25,7 @@
           <div class="mb-3">
             <label class="form-label">Dog</label>
             <select v-model="form.dog_id" class="form-control" required>
-              <option value="" disabled>Select your dog</option> 
+              <option value="" disabled>Select your dog</option>
               <option v-for="dog in ownerDogs" :key="dog.dog_id" :value="dog.dog_id">
                 {{ dog.name }} ({{ dog.size }})
               </option>
@@ -86,6 +86,7 @@
         });
 
         const walks = ref([]);
+        const ownerDogs = ref([])
         const message = ref('');
         const error = ref('');
 
