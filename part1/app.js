@@ -23,7 +23,7 @@ let db;
       user: 'root',
       password: ''
     });
-await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkS');
+await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
 await connection.end();
 db = await mysql.createConnection({
     host: 'localhost',
