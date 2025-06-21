@@ -23,13 +23,13 @@ let db;
       user: 'root',
       password: ''
     });
-await connection.query('CREATE DATABASE IF NOT EXISTS DoggyWalky');
+await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkS');
 await connection.end();
 db = await mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'DoggyWalky'
+    database: 'DogWalkService'
   });
 await db.execute(`
     CREATE TABLE IF NOT EXISTS Users (
